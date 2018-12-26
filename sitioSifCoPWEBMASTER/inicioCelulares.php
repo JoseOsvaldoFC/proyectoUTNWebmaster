@@ -5,17 +5,6 @@
                 //Consulta MySQL  - SELECT
                 $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo FROM telefonos WHERE estado = 'ALTA' AND cuatrigramaDestino <> 'RESERVA G20' AND cuatrigramaZona <> 'DICR' ORDER BY cuatrigramaZona";
                 $consulta = mysqli_query($conexion,$queryTelefonos);
-
-/*
-<?php
-function armarQueryConsulta()
-{
-    return $valor_devuelto;
-}
-?>
-*/
-
-
  ?>
 
 
@@ -110,25 +99,29 @@ function armarQueryConsulta()
         <table class="table table-bordered text-center">
           <thead>
             <tr class="table-active">
+              <th scope="col">NUMERACIÓN</th>
               <th scope="col">ID CEL</th>
               <th scope="col">Nº DE IMEI</th>
               <th scope="col">Nº DE ABONADO</th>
               <th scope="col">MODELO</th>
-              <th scope="col">DESTINO</th>
               <th scope="col">ZONA</th>
+              <th scope="col">DESTINO</th>
             </tr>
           </thead>
           <tbody>
             <?php 
+            $contadorCel = 0;
             /* procesar resultados*/
             while ($resultados=mysqli_fetch_array($consulta)) {
+              $contadorCel += 1;
               echo "<tr>";
-              echo "<th scope='row'>".$resultados['idCel']."</th>";
+              echo "<th scope='row'>".$contadorCel."</th>";
+              echo "<td>". $resultados['idCel']."</td>";
               echo "<td>". $resultados['imei']."</td>";
               echo "<td>". $resultados['linea']."</td>";
               echo "<td>".$resultados['modelo']."</td>";
-              echo "<td>".$resultados['cuatrigramaDestino']."</td>";
               echo "<td>".$resultados['cuatrigramaZona']."</td>";
+              echo "<td>".$resultados['cuatrigramaDestino']."</td>";
               echo  "</tr>";
           }
           include('finConexion.php');
