@@ -1,3 +1,24 @@
+<?php 
+                //Conexion PHP
+                include 'conexion.php';
+
+                //Consulta MySQL  - SELECT
+                $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo FROM telefonos WHERE estado = 'ALTA' AND cuatrigramaDestino <> 'RESERVA G20' AND cuatrigramaZona <> 'DICR' ORDER BY cuatrigramaZona";
+                $consulta = mysqli_query($conexion,$queryTelefonos);
+
+/*
+<?php
+function armarQueryConsulta()
+{
+    return $valor_devuelto;
+}
+?>
+*/
+
+
+ ?>
+
+
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -98,30 +119,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>@mdo</td>
-             <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-            </tr>
+            <?php 
+            /* procesar resultados*/
+            while ($resultados=mysqli_fetch_array($consulta)) {
+              echo "<tr>";
+              echo "<th scope='row'>".$resultados['idCel']."</th>";
+              echo "<td>". $resultados['imei']."</td>";
+              echo "<td>". $resultados['linea']."</td>";
+              echo "<td>".$resultados['modelo']."</td>";
+              echo "<td>".$resultados['cuatrigramaDestino']."</td>";
+              echo "<td>".$resultados['cuatrigramaZona']."</td>";
+              echo  "</tr>";
+          }
+          include('finConexion.php');
+          ?>
           </tbody>
         </table>
                 </div>
