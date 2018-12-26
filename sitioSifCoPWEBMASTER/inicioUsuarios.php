@@ -1,3 +1,13 @@
+
+<?php 
+                //Conexion PHP
+                include 'conexion.php';
+
+                //Consulta MySQL  - SELECT
+                $queryUsuarios = "SELECT idUsuario, apellidoNombre, numDni, usuario, contrasenia, zona, cuatrigramaDestino FROM usuariossifcop WHERE estado LIKE '%ALTA%' AND NOT(zona LIKE '%DICR%') ORDER BY zona, cuatrigramaDestino";
+                $consulta = mysqli_query($conexion,$queryUsuarios);
+ ?>
+
 <!DOCTYPE doctype html>
 <html class="no-js" lang="">
     <head>
@@ -97,43 +107,34 @@
         <table class="table table-bordered text-center">
           <thead>
             <tr class="table-active">
-              <th scope="col">ID USUARIO</th>
+              <th scope="col">NUMERACION</th>
               <th scope="col">APELLIDO y NOMBRE</th>
               <th scope="col">Nº de DNI</th>
+              <th scope="col">ZONA</th>
+              <th scope="col">DESTINO</th>
               <th scope="col">USUARIO</th>
               <th scope="col">CONTRASEÑA</th>
-              <th scope="col">DESTINO</th>
-              <th scope="col">ZONA</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>@mdo</td>
-             <td>@mdo</td>
-             <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+          <?php 
+            $contadorUsuario = 0;
+            /* procesar resultados*/
+            while ($resultados=mysqli_fetch_array($consulta)) {
+              $contadorUsuario += 1;
+              echo "<tr>";
+              echo "<th scope='row'>".$contadorUsuario."</th>";
+              echo "<td>". $resultados['apellidoNombre']."</td>";
+              echo "<td>". $resultados['numDni']."</td>";
+              echo "<td>".$resultados['zona']."</td>";
+              echo "<td>".$resultados['cuatrigramaDestino']."</td>";
+              echo "<td>".$resultados['usuario']."</td>";
+              echo "<td>".$resultados['contrasenia']."</td>";
+              echo  "</tr>";
+          }
+          include('finConexion.php');
+          ?>
           </tbody>
         </table>
         <br>

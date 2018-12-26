@@ -3,11 +3,9 @@
                 include 'conexion.php';
 
                 //Consulta MySQL  - SELECT
-                $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo FROM telefonos WHERE estado = 'ALTA' AND cuatrigramaDestino <> 'RESERVA G20' AND cuatrigramaZona <> 'DICR' ORDER BY cuatrigramaZona";
+                $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo FROM telefonos WHERE estado = 'ALTA' AND cuatrigramaDestino <> 'RESERVA G20' AND cuatrigramaZona <> 'DICR' ORDER BY cuatrigramaZona, cuatrigramaDestino";
                 $consulta = mysqli_query($conexion,$queryTelefonos);
  ?>
-
-
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -94,8 +92,6 @@
             </h3>
         </div>
         <div class="container">
-            
-
         <table class="table table-bordered text-center">
           <thead>
             <tr class="table-active">
@@ -109,7 +105,7 @@
             </tr>
           </thead>
           <tbody>
-            <?php 
+          <?php 
             $contadorCel = 0;
             /* procesar resultados*/
             while ($resultados=mysqli_fetch_array($consulta)) {
