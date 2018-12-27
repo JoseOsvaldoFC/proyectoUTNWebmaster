@@ -125,12 +125,12 @@
               $contadorUsuario += 1;
               echo "<tr>";
               echo "<th scope='row'>".$contadorUsuario."</th>";
-              echo "<td>". $resultados['apellidoNombre']."</td>";
-              echo "<td>". $resultados['numDni']."</td>";
+              echo "<td>".utf8_encode($resultados['apellidoNombre'])."</td>";
+              echo "<td>".$resultados['numDni']."</td>";
               echo "<td>".$resultados['zona']."</td>";
               echo "<td>".$resultados['cuatrigramaDestino']."</td>";
-              echo "<td>".$resultados['usuario']."</td>";
-              echo "<td>".$resultados['contrasenia']."</td>";
+              echo "<td>".utf8_encode($resultados['usuario'])."</td>";
+              echo "<td>".utf8_encode($resultados['contrasenia'])."</td>";
               echo  "</tr>";
           }
           include('finConexion.php');
