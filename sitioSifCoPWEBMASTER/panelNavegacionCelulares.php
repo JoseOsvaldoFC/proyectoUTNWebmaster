@@ -1,4 +1,4 @@
-
+<!-- Inicio Navigator Celulares-->
         <div class="container-fluid navSifcop">
             <div class="row">
                 <div class="col">
@@ -20,30 +20,30 @@
                                     </a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="inicioUsuarios.php">
-                                        Usuarios
+                                    <a class="nav-link" href="inicioCelulares.php">
+                                        Celulares
                                     </a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <!--<li class="nav-item dropdown">
                                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
                                         Administración
                                     </a>
                                     <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                                        <a class="dropdown-item" href="altaUsuario.php">
+                                        <a class="dropdown-item" href="#">
                                             Alta
                                         </a>
-                                        <a class="dropdown-item" href="bajaUsuarioPaso1.php">
+                                        <a class="dropdown-item" href="#">
                                             Baja
                                         </a>
-                                        <a class="dropdown-item" href="cambioDestinoUsuarioPaso1.php">
-                                            Cambio de Destino
+                                        <a class="dropdown-item" href="#">
+                                            Cargar Novedad
                                         </a>
                                     </div>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
-  
+        <!-- Fin Navigator -->
