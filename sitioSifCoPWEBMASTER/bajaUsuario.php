@@ -35,17 +35,9 @@
         <div class="container text-center">
           <h3>Baja Usuario</h3>
         </div> 
-        <footer>
-            <div class="container pt-0 mt-0 pieDePagina">
-                <p>
-                CONTACTO: DIRECCIÓN DE OPERACIONES - Sección Sistemas <br>
-                Dirección: Edificio Guardacostas Av. Eduardo Madero 235 - C1106ACC <br>
-                Ciudad Autónoma de Buenos Aires Argentina.<br>
-                Teléfono: (+5411) 4318-7400 int 2326/2327 <br>
-                Correo electrónico: <a href="diop-sistemas@prefecturanaval.gov.ar">diop-sistemas@prefecturanaval.gov.ar</a> 
-                </p>
-            </div>
-        </footer>
+        <?php 
+            include('footer.php');
+         ?>
     <!-- Para agregar JS en bootstrap -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
