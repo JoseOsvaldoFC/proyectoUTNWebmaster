@@ -26,40 +26,36 @@
         <div class="text-center">
             <div class="container header2">
                 <img alt="headerPrefectura" src="img/logoSifcop.png">
-                </img>
-            </div>
-            <div class="container">
-                <h1>
-                    Dirección de Operaciones
-                </h1>
-            </div>
-            <div class="container">
-                <h2>
-                    Gestion Usuario SiFCop
-                </h2>
-            </div>
+            </img>
         </div>
-        <?php 
-            include ('panelNavegacionUsuarios.php');
-         ?>
-        <div class="container text-center">
-            <div class="containter">
-                <label for="customRange1">
-                    PASO 2
-                </label>
-                <input class="custom-range" id="customRange1" max="1" min="0" step="0.5" type="range">
-                </input>
-            </div>
-            <div class="container">
-                <h5>
-                    Datos del Usuario
-                </h5>
-            </div>
+        <div class="container">
+            <h1>
+                Dirección de Operaciones
+            </h1>
         </div>
-    </body>
-</html>
+        <div class="container">
+            <h2>
+                Gestion Usuario SiFCop
+            </h2>
+        </div>
+    <?php 
+    include ('panelNavegacionUsuarios.php');
+    ?>
+    <div class="container text-center">
+        <div class="containter">
+            <label for="customRange1">
+                PASO 2
+            </label>
+            <input class="custom-range" id="customRange1" max="1" min="0" step="0.5" type="range">
+        </input>
+    </div>
+    <div class="container">
+        <h5>
+            Datos del Usuario
+        </h5>
+    </div>
+</div>
 <br>
-
 <div class="container">
     <div class="container text-center">
         <form action="bajaUsuarioPaso3.php">
@@ -124,10 +120,10 @@
                 </div>
             </div>
 
-              <div class="form-group text-left">
+            <div class="form-group text-left">
                 <label for="exampleFormControlTextarea1">Motivo:</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
+            </div>
             
             <div class="form-group row">
                 <div class="col-sm-12">
@@ -140,35 +136,9 @@
         </form>
     </div>
 </div>
-        <?php 
-            include('footer.php');
-         ?>
-<!-- Para agregar JS en bootstrap -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
-</script>
-<script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
-</script>
-<script crossorigin="anonymous" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-</script>
-<script src="js/plugins.js">
-</script>
-<script src="js/main.js">
-</script>
-<script src="https://code.jquery.com/jquery-1.12.0.min.js">
-</script>
-<script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
-</script>
-<script src="js/plugins.js">
-</script>
-<script src="js/main.js">
-</script>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-</script>
+<?php 
+include('footer.php');
+include('scriptJSBootstrap.php');
+?>
+</body>
+</html>
