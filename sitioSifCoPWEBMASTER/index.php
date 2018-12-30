@@ -1,4 +1,4 @@
 <?php 
   //require('login.php');
-require('inicioPagina.php');
+require('formLogin.php');
  ?>
