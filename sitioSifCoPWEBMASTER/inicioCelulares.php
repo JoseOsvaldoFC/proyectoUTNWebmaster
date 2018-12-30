@@ -21,6 +21,11 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+           <?php 
+      // si estan seteadas las sesuines mostramos el codigo exclusivo 
+      session_start();
+      if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
+?>
         <header class="container-fluid header1">
             <div>
                 <img src="img/headerPrefectura.jpg" alt="headerPrefectura">
@@ -82,6 +87,14 @@
          <?php 
             include('footer.php');
             include('scriptJSBootstrap.php');
+                              } else {
+        ?>
+        <script>
+          alert("Debe ser usuario registrado");
+        </script>
+        <?php
+          include('formLogin.php');
+        }
          ?>
 
     </body>

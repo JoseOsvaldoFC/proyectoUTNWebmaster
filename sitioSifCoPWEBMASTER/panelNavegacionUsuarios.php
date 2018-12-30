@@ -39,6 +39,11 @@
                                         </a>
                                     </div>
                                 </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="salir.php">
+                                        Salir
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </nav>

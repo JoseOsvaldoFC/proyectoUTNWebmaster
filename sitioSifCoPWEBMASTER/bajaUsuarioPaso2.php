@@ -16,6 +16,11 @@
             </script>              
     </head>
     <body>
+             <?php 
+      // si estan seteadas las sesuines mostramos el codigo exclusivo 
+      session_start();
+      if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
+?>
         <header class="container-fluid header1">
             <div>
                 <img alt="headerPrefectura" src="img/headerPrefectura.jpg">
@@ -139,6 +144,14 @@
 <?php 
 include('footer.php');
 include('scriptJSBootstrap.php');
+                  } else {
+        ?>
+        <script>
+          alert("Debe ser usuario registrado");
+        </script>
+        <?php
+          include('formLogin.php');
+        }
 ?>
 </body>
 </html>
