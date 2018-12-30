@@ -32,7 +32,7 @@
           </div>
           <!-- Contenido -->
                   <div  class="cajas text-center">
-                    <form method="post" action="login.php" target="_blank">
+                    <form method="post" action="login.php">
                       <!-- Campo Nombre -->
                       <div class="form-group pt-5">
                         <label for="Usuario">Usuario</label>

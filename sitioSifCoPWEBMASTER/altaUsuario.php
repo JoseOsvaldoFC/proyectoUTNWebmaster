@@ -1,4 +1,16 @@
- <!doctype html>
+<?php 
+                //Conexion PHP
+                include 'conexion.php';
+                //Consulta MySQL  - SELECT
+                $queryZona = "SELECT DISTINCT(cuatrigramaZona) from destinos";
+                $consultaZonas = mysqli_query($conexion,$queryZona);
+
+                $queryDestinos = "SELECT idDestino, cuatrigramaZona,cuatrigramaDestino from destinos";
+                $consultaDestinos = mysqli_query($conexion,$queryDestinos);
+ ?>
+
+
+<!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -49,46 +61,51 @@
               <div class="form-group row conteiner">
                 <label for="inputApellidoYNombre" class="col-sm-2 col-form-label">Apellido y Nombre:</label>
                 <div class="col-sm-7">
-                  <input class="form-control" id="inputApellidoYNombre" placeholder="Apellido y Nombre">
+                  <input class="form-control" id="inputApellidoYNombre" placeholder="Apellido y Nombre" required="true">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputNumDeDNI" class="col-sm-2 col-form-label">Nº de DNI:</label>
                 <div class="col-sm-7">
-                  <input class="form-control" id="inputNumDeDNI" placeholder="Nº de DNI">
+                  <input class="form-control" id="inputNumDeDNI" placeholder="Nº de DNI"  required="true">
                 </div>
               </div>
                 <div class="form-group row">
                 <label for="inputUsuario" class="col-sm-2 col-form-label">Usuario:</label>
                 <div class="col-sm-7">
-                  <input class="form-control" id="inputUsuario" placeholder="Usuario">
+                  <input class="form-control" id="inputUsuario" placeholder="Usuario"  required="true">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputContrasenia" class="col-sm-2 col-form-label">Contraseña:</label>
                 <div class="col-sm-7">
-                  <input class="form-control" id="inputContrasenia" placeholder="Contraseña">
+                  <input class="form-control" id="inputContrasenia" placeholder="Contraseña" required="true">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputDestino" class="col-sm-2 col-form-label">Destino:</label>
                 <div class="col-sm-7">
-                    <select class="custom-select my-1 mr-sm-2" id="inputDestino">
-                    <option selected>Elija Destino</option>
-                    <option value="1">BARA</option>
-                    <option value="2">BSAS</option>
-                    <option value="3">CORR</option>
+                    <select class="custom-select my-1 mr-sm-2" id="inputDestino" required="true">
+                    <?php 
+                      while ($resultadosDestino=mysqli_fetch_array($consultaDestinos)) {
+                        $datoDestino = $resultadosDestino['cuatrigramaDestino'];
+                        echo "<option value='$datoDestino'>".$datoDestino."</option>";
+                    }
+                    ?>
                   </select>
                 </div>
               </div>
                 <div class="form-group row">
                 <label for="inlineZona" class="col-sm-2 col-form-label">Zona/Dirección:</label>
                 <div class="col-sm-7">
-                    <select class="custom-select my-1 mr-sm-2" id="inlineZona">
-                    <option selected>Elija Prefectura de Zona/Dirección</option>
-                    <option value="1">PZMN</option>
-                    <option value="2">PZRP</option>
-                    <option value="3">PZMS</option>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineZona" required="true">
+                    <?php 
+                      while ($resultadosZona=mysqli_fetch_array($consultaZonas)) {
+                        $datoZona = $resultadosZona['cuatrigramaZona'];
+                        echo "<option value='$datoZona'>".$datoZona."</option>";
+                    }
+                    include('finConexion.php');
+                    ?>
                   </select>
                 </div>
               </div>
