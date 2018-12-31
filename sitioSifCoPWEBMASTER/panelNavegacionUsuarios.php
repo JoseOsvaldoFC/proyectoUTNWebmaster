@@ -28,7 +28,7 @@
                                         Administración
                                     </a>
                                     <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                                        <a class="dropdown-item" href="altaUsuario.php">
+                                        <a class="dropdown-item" href="formAltaUsuario.php">
                                             Alta
                                         </a>
                                         <a class="dropdown-item" href="bajaUsuarioPaso1.php">
