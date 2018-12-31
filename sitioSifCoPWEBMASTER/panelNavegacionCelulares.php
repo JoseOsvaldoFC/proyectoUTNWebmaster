@@ -1,4 +1,3 @@
-<!-- Inicio Navigator Celulares-->
         <div class="container-fluid navSifcop">
             <div class="row">
                 <div class="col">
@@ -51,4 +50,3 @@
                 </div>
             </div>
         </div>
-        <!-- Fin Navigator -->

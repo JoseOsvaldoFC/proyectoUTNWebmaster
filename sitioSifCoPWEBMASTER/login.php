@@ -13,9 +13,7 @@
 			<?php 
 				include('formLogin.php');
 			} else {
-				//procesamos el resultado
 				$datos=mysqli_fetch_array($consulta);
-				//Armar las variables de sesion, con lo devuelto por la base de datos
 				session_start();
 				$_SESSION['usuario'] = $usuario;
 				$_SESSION['destino'] = $datos['destino'];

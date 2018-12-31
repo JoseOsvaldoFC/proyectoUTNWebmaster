@@ -1,4 +1,3 @@
- <!-- Inicio Encabezado -->
         <header class="container-fluid header1">
             <div>
                 <img src="img/headerPrefectura.jpg" alt="headerPrefectura">
@@ -12,8 +11,6 @@
                 <h1>Dirección de Operaciones</h1>
             </div>
             <div class="container">
-                <h2>Gestion Usuario SiFCop</h2>
+                <h2>Gestion Usuario SiFCoP</h2>
             </div> 
-        </div>
-<!-- Fin Encabezado -->
- 
+        </div> 

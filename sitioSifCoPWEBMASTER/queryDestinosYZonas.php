@@ -1,6 +1,4 @@
 <?php 
-
-                //Consulta MySQL  - SELECT
                 $queryZona = "SELECT DISTINCT(cuatrigramaZona) from destinos";
                 $consultaZonas = mysqli_query($conexion,$queryZona);
 
