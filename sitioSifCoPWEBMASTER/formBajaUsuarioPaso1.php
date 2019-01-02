@@ -55,7 +55,7 @@
         <script type="text/javascript">
           var arrayJS=<?php echo json_encode($arrayDniPHP);?>;
           for (var i = 0; i < arrayJS.length; i+=1) {
-            document.write(arrayJS[i]);
+           // document.write(arrayJS[i]);
           }
         </script>
 
