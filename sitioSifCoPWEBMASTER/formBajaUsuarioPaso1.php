@@ -1,7 +1,6 @@
 <?php 
 
      require("conexion.php");
-     include('funcionesAuxiliares.php');
      $queryDni = "SELECT numDni FROM usuariossifcop";
      $consultaDniUsuarios = mysqli_query($conexion,$queryDni);
      $arrayDniPHP = [];
@@ -33,11 +32,11 @@
         </div>
         <div class="container">
             <div class="container text-center">
-            <form action="formBajaUsuarioPaso2.php">
+            <form action="bajaUsuarioPaso1.php" method="GET">
               <div class="form-group row container">
                 <label for="inputApellidoYNombre" class="col-sm-2 col-form-label">DNI del Usuario:</label>
                 <div class="col-sm-7">
-                  <input class="form-control" id="inputApellidoYNombre" placeholder="DNI del Usuario">
+                  <input class="form-control" id="inputApellidoYNombre" placeholder="DNI del Usuario" name="numDni" required="true">
                   <br>
                 </div>
               </div>

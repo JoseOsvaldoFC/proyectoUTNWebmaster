@@ -9,7 +9,7 @@
      require("conexion.php");
      include('funcionesAuxiliares.php');
       if (existeUsuarioSifcop($numDni, $conexion) == 0) {
-         $queryInsertarUsuario = "INSERT INTO usuariossifcop VALUES (0, '$apellidoYNombre', '$numDni', '$usuario', '$contrasenia', '$cuatrigramaDestino', '$cuatrigramaZona','ALTA')";
+         $queryInsertarUsuario = "INSERT INTO usuariossifcop VALUES (0, '$numDni', '$apellidoYNombre', '$usuario', '$contrasenia', '$cuatrigramaDestino', '$cuatrigramaZona','ALTA')";
          $nuevoUsuario = mysqli_query($conexion,$queryInsertarUsuario) or die("Error en la consulta".mysqli_error($conexion)."$queryInsertarUsuario");
          if ($nuevoUsuario==true) {
           echo "<div class='alert alert-success' role='alert'>

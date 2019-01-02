@@ -9,6 +9,23 @@
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
         include ('encabezado.php');
         include ('panelNavegacionUsuarios.php');
+
+        $numDni = $_GET['numDni'];
+
+        include ('conexion.php');
+        $queryUsuarios = "SELECT idUsuario, apellidoNombre, numDni, usuario, contrasenia, zona, cuatrigramaDestino FROM usuariossifcop WHERE numDni = '$numDni'";
+
+        $consulta = mysqli_query($conexion,$queryUsuarios);
+        $resultado = mysqli_fetch_array($consulta);
+
+       $apellidoNombre = $resultado['apellidoNombre'];
+       $numDni = $resultado['numDni'];
+       $usuario = $resultado['usuario'];
+       $contrasenia = $resultado['contrasenia'];
+       $zona = $resultado['zona'];
+       $cuatrigramaDestino = $resultado['cuatrigramaDestino'];
+
+
     ?>
     <div class="container text-center">
         <div class="containter">
@@ -34,7 +51,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputApellidoYNombre" placeholder="Apellido y Nombre">
-                        unApellidoYNombre
+                        <?php echo $apellidoNombre; ?>
                     </output>
                 </div>
             </div>
@@ -44,7 +61,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputNumDeDNI" placeholder="Nº de DNI">
-                        unNº de DNI
+                        <?php echo $numDni; ?>
                     </output>
                 </div>
             </div>
@@ -54,7 +71,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputUsuario" placeholder="Usuario">
-                        unUsuario
+                        <?php echo $usuario; ?>
                     </output>
                 </div>
             </div>
@@ -64,7 +81,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputContrasenia" placeholder="Contraseña">
-                        unaContrasenia
+                        <?php echo $contrasenia; ?>
                     </output>
                 </div>
             </div>
@@ -74,7 +91,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputDestino" placeholder="inputDestino">
-                        unDestino
+                        <?php echo $cuatrigramaDestino; ?>
                     </output>
                 </div>
             </div>
@@ -84,7 +101,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inlineZona" placeholder="inlineZona">
-                        unaZona
+                        <?php echo $zona; ?>
                     </output>
                 </div>
             </div>
