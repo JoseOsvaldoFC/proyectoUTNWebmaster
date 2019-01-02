@@ -9,6 +9,25 @@
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
             include ('panelNavegacionUsuarios.php');
+            include ('conexion.php');
+            include 'queryDestinosYZonas.php';
+          $numDni = $_GET['numDni'];
+
+
+            $queryUsuarios = "SELECT idUsuario, apellidoNombre, numDni, usuario, contrasenia, zona, cuatrigramaDestino FROM usuariossifcop WHERE numDni = '$numDni'";
+
+            $consulta = mysqli_query($conexion,$queryUsuarios);
+            $resultado = mysqli_fetch_array($consulta);
+
+           $idUsuario = $resultado['idUsuario'];
+           $apellidoNombre = $resultado['apellidoNombre'];
+           $numDni = $resultado['numDni'];
+           $usuario = $resultado['usuario'];
+           $contrasenia = $resultado['contrasenia'];
+           $zona = $resultado['zona'];
+           $cuatrigramaDestino = $resultado['cuatrigramaDestino'];
+
+
          ?>
         <div class="container text-center">
           <h3>Cambio Destino</h3>
@@ -31,7 +50,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputApellidoYNombre" placeholder="Apellido y Nombre">
-                        unApellidoYNombre
+                        <?php echo $apellidoNombre; ?>
                     </output>
                 </div>
             </div>
@@ -41,7 +60,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputNumDeDNI" placeholder="Nº de DNI">
-                        unNº de DNI
+                        <?php echo $numDni; ?>
                     </output>
                 </div>
             </div>
@@ -51,7 +70,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputUsuario" placeholder="Usuario">
-                        unUsuario
+                        <?php echo $usuario; ?>
                     </output>
                 </div>
             </div>
@@ -61,7 +80,7 @@
                 </label>
                 <div class="col-sm-7">
                     <output class="form-control" id="inputContrasenia" placeholder="Contraseña">
-                        unaContrasenia
+                        <?php echo $contrasenia; ?>
                     </output>
                 </div>
             </div>
@@ -71,16 +90,18 @@
                 </label>
                 <div class="col-sm-3">
                     <output class="form-control" id="inputDestino" placeholder="inputDestino">
-                        unDestino
+                        <?php echo $cuatrigramaDestino; ?>
                     </output>
                 </div>
                  <label for="inputDestino" class="col-sm-2 col-form-label">Nuevo Destino:</label>
                 <div class="col-sm-3">
                     <select class="custom-select my-1 mr-sm-2" id="inputDestino">
-                    <option selected>Elija Destino</option>
-                    <option value="1">BARA</option>
-                    <option value="2">BSAS</option>
-                    <option value="3">CORR</option>
+                    <?php 
+                      while ($resultadosDestino=mysqli_fetch_array($consultaDestinos)) {
+                        $datoDestino = $resultadosDestino['cuatrigramaDestino'];
+                        echo "<option value='$datoDestino'>".$datoDestino." - ".$resultadosDestino['descripcionDestino']."</option>";
+                    }
+                    ?>
                   </select>
                 </div>
             </div>
@@ -90,18 +111,10 @@
                 </label>
                 <div class="col-sm-3">
                     <output class="form-control" id="inlineZona" placeholder="inlineZona">
-                        unaZona
+                        <?php echo $zona; ?>
                     </output>
                 </div>
-
-                <label for="inlineZona" class="col-sm-2 col-form-label">Nueva Zona/Dirección:</label>
                 <div class="col-sm-3">
-                    <select class="custom-select my-1 mr-sm-2" id="inlineZona">
-                    <option selected>Elija Prefectura de Zona/Dirección</option>
-                    <option value="1">PZMN</option>
-                    <option value="2">PZRP</option>
-                    <option value="3">PZMS</option>
-                  </select>
                 </div>
             </div>
               <div class="form-group text-left">
@@ -120,7 +133,6 @@
     </div>
 </div>
 </div>
- 
 <!-- Inicio Pie de pagina -->
         <?php 
             include('footer.php');

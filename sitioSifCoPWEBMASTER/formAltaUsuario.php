@@ -60,20 +60,6 @@
                   </select>
                 </div>
               </div>
-                <div class="form-group row">
-                <label for="inlineZona" class="col-sm-2 col-form-label">Zona/Dirección:</label>
-                <div class="col-sm-7">
-                    <select class="custom-select my-1 mr-sm-2" id="inlineZona" required="true" name="cuatrigramaZona">
-                    <?php 
-                      while ($resultadosZona=mysqli_fetch_array($consultaZonas)) {
-                        $datoZona = $resultadosZona['cuatrigramaZona'];
-                        echo "<option value='$datoZona'>".$datoZona."</option>";
-                    }
-                    include('finConexion.php');
-                    ?>
-                  </select>
-                </div>
-              </div>
               </fieldset>
               <div class="form-group row">
                 <div class="col-sm-12">

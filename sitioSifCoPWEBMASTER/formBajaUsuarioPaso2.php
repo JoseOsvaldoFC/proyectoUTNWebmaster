@@ -18,6 +18,7 @@
         $consulta = mysqli_query($conexion,$queryUsuarios);
         $resultado = mysqli_fetch_array($consulta);
 
+       $idUsuario = $resultado['idUsuario'];
        $apellidoNombre = $resultado['apellidoNombre'];
        $numDni = $resultado['numDni'];
        $usuario = $resultado['usuario'];
@@ -44,7 +45,7 @@
 <br>
 <div class="container">
     <div class="container text-center">
-        <form action="formBajaUsuarioPaso3.php">
+        <form action="formBajaUsuarioPaso3.php" method="POST">
             <div class="form-group row conteiner">
                 <label class="col-sm-2 col-form-label" for="inputApellidoYNombre">
                     Apellido y Nombre:
@@ -107,15 +108,17 @@
             </div>
 
             <div class="form-group text-left">
-                <label for="exampleFormControlTextarea1">Motivo:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="exampleFormControlTextarea1">Observaciones:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>
             </div>
-            
+            <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">
+            <input type="hidden" id="numDni" name="numDni" value="<?php echo $numDni?>">
+            <input type="hidden" id="usuario" name="usuario" value="<?php echo $usuario?>">
             <div class="form-group row">
                 <div class="col-sm-12">
                     <a href="inicioUsuarios.php">volver</a>
                     <button class="btn btn-primary" type="submit">
-                        Eliminar
+                        Dar de baja
                     </button>
                 </div>
             </div>

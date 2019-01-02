@@ -5,9 +5,11 @@
      $usuario = $_POST['usuario'];
      $contrasenia = $_POST['contrasenia'];
      $cuatrigramaDestino = $_POST['cuatrigramaDestino'];
-     $cuatrigramaZona = $_POST['cuatrigramaZona'];
+     /*$cuatrigramaZona = $_POST['cuatrigramaZona'];*/
      require("conexion.php");
      include('funcionesAuxiliares.php');
+
+     $cuatrigramaZona = obtenerZonaDeLaCualDepende($cuatrigramaDestino, $conexion);
       if (existeUsuarioSifcop($numDni, $conexion) == 0) {
          $queryInsertarUsuario = "INSERT INTO usuariossifcop VALUES (0, '$numDni', '$apellidoYNombre', '$usuario', '$contrasenia', '$cuatrigramaDestino', '$cuatrigramaZona','ALTA')";
          $nuevoUsuario = mysqli_query($conexion,$queryInsertarUsuario) or die("Error en la consulta".mysqli_error($conexion)."$queryInsertarUsuario");
