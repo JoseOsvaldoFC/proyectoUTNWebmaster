@@ -43,7 +43,7 @@
         </div>
         <div class="container">
            <div class="container text-center">
-        <form action="cambioDestinoUsuarioPaso3.php">
+        <form action="formCambioDestinoUsuarioPaso3.php" method="POST">
             <div class="form-group row conteiner">
                 <label class="col-sm-2 col-form-label" for="inputApellidoYNombre">
                     Apellido y Nombre:
@@ -95,7 +95,7 @@
                 </div>
                  <label for="inputDestino" class="col-sm-2 col-form-label">Nuevo Destino:</label>
                 <div class="col-sm-3">
-                    <select class="custom-select my-1 mr-sm-2" id="inputDestino">
+                    <select class="custom-select my-1 mr-sm-2" id="inputDestino" name="nuevoDestino">
                     <?php 
                       while ($resultadosDestino=mysqli_fetch_array($consultaDestinos)) {
                         $datoDestino = $resultadosDestino['cuatrigramaDestino'];
@@ -121,6 +121,12 @@
                 <label for="exampleFormControlTextarea1">Motivo:</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
+
+            <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">
+            <input type="hidden" id="numDni" name="numDni" value="<?php echo $numDni?>">
+            <input type="hidden" id="usuario" name="usuario" value="<?php echo $usuario?>">
+            <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $cuatrigramaDestino?>">
+
             <div class="form-group row">
                 <div class="col-sm-12">
                     <a href="inicioUsuarios.php">volver</a>

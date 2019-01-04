@@ -9,6 +9,14 @@
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
             include ('panelNavegacionUsuarios.php');
+
+            $idUsuario = $_POST['idUsuario'];
+            $numDni = $_POST['numDni'];
+            $usuario = $_POST['usuario'];
+            /*$observacion = $_POST['observacion'];*/
+            $destinoOrigen = $_POST['destinoOrigen'];
+            $nuevoDestino = $_POST['nuevoDestino'];
+
          ?>
         <div class="container text-center">
           <h3>Cambio Destino</h3>
@@ -21,11 +29,16 @@
             <br>
                 <div class="container">
                     <div class="alert alert-warning" role="alert">
-                        ¿Seguro que desea cambiar el destino del usuario unUsuario a unNuevoDestino?
+                        ¿Seguro que desea cambiar el destino del usuario <?php echo $usuario; ?> desde el Destino <?php echo $destinoOrigen; ?> a <?php echo $nuevoDestino; ?>?
                     </div>
-                    <form action="inicioUsuarios.php">
+                    <form action="cambioDestinoUsuarioPaso3.php" method="GET">
                         <div class="form-group row">
                             <div class="col-sm-12">
+                               <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">
+                               <input type="hidden" id="numDni" name="numDni" value="<?php echo $numDni?>">
+                               <input type="hidden" id="nuevoDestino" name="nuevoDestino" value="<?php echo $nuevoDestino?>">
+                               <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $destinoOrigen?>">
+                                <input type="hidden" id="usuario" name="usuario" value="<?php echo $usuario?>">
                                 <a href="inicioUsuarios.php">
                                     volver
                                 </a>
