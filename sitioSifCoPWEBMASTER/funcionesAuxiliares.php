@@ -21,5 +21,12 @@
 	    $resultado=mysqli_fetch_array($consultaZona);
 	    return $resultado['cuatrigramaZona'];
 	}
+
+	function existeCelularSifcop($idCelular, $conexion)
+	{
+		$queryValidacionCelular = "SELECT idCel, patrimonial, imei, linea, modelo, cuatrigramaZona, cuatrigramaDestino, estado FROM telefonos WHERE idCel = $idCel";
+		$consultaCelular = mysqli_query($conexion, $queryValidacionCelular);
+		return mysqli_num_rows($consultaCelular);
+	}
 ?>
 

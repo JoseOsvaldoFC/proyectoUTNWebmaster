@@ -28,14 +28,8 @@
                                         Administración
                                     </a>
                                     <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">
-                                            Alta
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            Baja
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            Cargar Novedad
+                                        <a class="dropdown-item" href="formCambioDestinoCelularPaso1.php">
+                                          Cargar Traslado
                                         </a>
                                     </div>
                                 </li>
