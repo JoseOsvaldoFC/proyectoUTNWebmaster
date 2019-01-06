@@ -118,8 +118,8 @@
                 </div>
             </div>
               <div class="form-group text-left">
-                <label for="exampleFormControlTextarea1">Motivo:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="exampleFormControlTextarea1">observacion:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>
               </div>
 
             <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">

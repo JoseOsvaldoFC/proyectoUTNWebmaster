@@ -24,7 +24,7 @@
 
 	function existeCelularSifcop($idCelular, $conexion)
 	{
-		$queryValidacionCelular = "SELECT idCel, patrimonial, imei, linea, modelo, cuatrigramaZona, cuatrigramaDestino, estado FROM telefonos WHERE idCel = $idCel";
+		$queryValidacionCelular = "SELECT idCel, patrimonial, imei, linea, modelo, cuatrigramaZona, cuatrigramaDestino, estado FROM telefonos WHERE idCel = $idCelular";
 		$consultaCelular = mysqli_query($conexion, $queryValidacionCelular);
 		return mysqli_num_rows($consultaCelular);
 	}

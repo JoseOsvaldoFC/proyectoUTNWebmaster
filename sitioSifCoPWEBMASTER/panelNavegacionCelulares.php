@@ -31,6 +31,9 @@
                                         <a class="dropdown-item" href="formCambioDestinoCelularPaso1.php">
                                           Cargar Traslado
                                         </a>
+                                        <a class="dropdown-item" href="trasladosCelulares.php">
+                                          Ver Traslados
+                                        </a>
                                     </div>
                                 </li>
                                  <li class="nav-item active">

@@ -8,26 +8,21 @@
       session_start();
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
-            include ('panelNavegacionUsuarios.php');
+            include ('panelNavegacionCelulares.php');
             include ('conexion.php');
             include 'queryDestinosYZonas.php';
             $idCelular = $_GET['idCelular'];
 /*Modificar a partir de aca*/
-
-            $queryCelular = "SELECT idUsuario, apellidoNombre, numDni, usuario, contrasenia, zona, cuatrigramaDestino FROM usuariossifcop WHERE numDni = '$numDni'";
-
-            $consulta = mysqli_query($conexion,$queryUsuarios);
+            $queryCelular = "SELECT idCel, patrimonial, imei, linea, modelo, cuatrigramaZona, cuatrigramaDestino, estado FROM telefonos WHERE idCel = $idCelular";
+            $consulta = mysqli_query($conexion,$queryCelular);
             $resultado = mysqli_fetch_array($consulta);
-
-           $idUsuario = $resultado['idUsuario'];
-           $apellidoNombre = $resultado['apellidoNombre'];
-           $numDni = $resultado['numDni'];
-           $usuario = $resultado['usuario'];
-           $contrasenia = $resultado['contrasenia'];
-           $zona = $resultado['zona'];
+           $patrimonial = $resultado['patrimonial'];
+           $imei = $resultado['imei'];
+           $linea = $resultado['linea'];
+           $modelo = $resultado['modelo'];
+           $cuatrigramaZona = $resultado['cuatrigramaZona'];
            $cuatrigramaDestino = $resultado['cuatrigramaDestino'];
-
-
+           $estado = $resultado['estado'];
          ?>
         <div class="container text-center">
           <h3>Cambio Destino</h3>
@@ -43,44 +38,44 @@
         </div>
         <div class="container">
            <div class="container text-center">
-        <form action="formCambioDestinoUsuarioPaso3.php" method="POST">
+        <form action="formCambioDestinoCelularPaso3.php" method="POST">
             <div class="form-group row conteiner">
-                <label class="col-sm-2 col-form-label" for="inputApellidoYNombre">
-                    Apellido y Nombre:
+                <label class="col-sm-2 col-form-label" for="patrimonial">
+                    Número Patrimonial:
                 </label>
                 <div class="col-sm-7">
-                    <output class="form-control" id="inputApellidoYNombre" placeholder="Apellido y Nombre">
-                        <?php echo $apellidoNombre; ?>
+                    <output class="form-control" id="patrimonial" placeholder="Apellido y Nombre">
+                        <?php echo $patrimonial; ?>
                     </output>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="inputNumDeDNI">
-                    Nº de DNI:
+                <label class="col-sm-2 col-form-label" for="imei">
+                    Número de IMEI:
                 </label>
                 <div class="col-sm-7">
-                    <output class="form-control" id="inputNumDeDNI" placeholder="Nº de DNI">
-                        <?php echo $numDni; ?>
+                    <output class="form-control" id="imei" placeholder="Número de IMEI">
+                        <?php echo $imei; ?>
                     </output>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="inputUsuario">
-                    Usuario:
+                <label class="col-sm-2 col-form-label" for="inputLinea">
+                    Linea:
                 </label>
                 <div class="col-sm-7">
-                    <output class="form-control" id="inputUsuario" placeholder="Usuario">
-                        <?php echo $usuario; ?>
+                    <output class="form-control" id="inputLinea" placeholder="linea">
+                        <?php echo $linea; ?>
                     </output>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="inputContrasenia">
-                    Contraseña:
+                <label class="col-sm-2 col-form-label" for="inputModelo">
+                    Modelo:
                 </label>
                 <div class="col-sm-7">
-                    <output class="form-control" id="inputContrasenia" placeholder="Contraseña">
-                        <?php echo $contrasenia; ?>
+                    <output class="form-control" id="inputModelo" placeholder="Modelo">
+                        <?php echo $modelo; ?>
                     </output>
                 </div>
             </div>
@@ -93,9 +88,9 @@
                         <?php echo $cuatrigramaDestino; ?>
                     </output>
                 </div>
-                 <label for="inputDestino" class="col-sm-2 col-form-label">Nuevo Destino:</label>
+                 <label for="inputNuevoDestino" class="col-sm-2 col-form-label">Nuevo Destino:</label>
                 <div class="col-sm-3">
-                    <select class="custom-select my-1 mr-sm-2" id="inputDestino" name="nuevoDestino">
+                    <select class="custom-select my-1 mr-sm-2" id="inputNuevoDestino" name="nuevoDestino">
                     <?php 
                       while ($resultadosDestino=mysqli_fetch_array($consultaDestinos)) {
                         $datoDestino = $resultadosDestino['cuatrigramaDestino'];
@@ -111,20 +106,31 @@
                 </label>
                 <div class="col-sm-3">
                     <output class="form-control" id="inlineZona" placeholder="inlineZona">
-                        <?php echo $zona; ?>
+                        <?php echo $cuatrigramaZona; ?>
                     </output>
                 </div>
+                 <label for="inputMotivo" class="col-sm-2 col-form-label">Motivo:</label>
                 <div class="col-sm-3">
+                    <select class="custom-select my-1 mr-sm-2" id="inputMotivo" name="motivo">
+                    <?php 
+                      $queryMotivos = "SELECT idMotivo, descripcionMotivo from motivosTelefono";
+                      $consultaMotivos = mysqli_query($conexion,$queryMotivos);
+                      while ($resultadosMotivos=mysqli_fetch_array($consultaMotivos)) {
+                        $datoMotivo = $resultadosMotivos['descripcionMotivo'];
+                        echo "<option value='$datoMotivo'>".$datoMotivo."</option>";
+                    }
+                    ?>
+                  </select>
                 </div>
             </div>
               <div class="form-group text-left">
-                <label for="exampleFormControlTextarea1">Motivo:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="exampleFormControlTextarea1">Observación:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>
               </div>
 
-            <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">
-            <input type="hidden" id="numDni" name="numDni" value="<?php echo $numDni?>">
-            <input type="hidden" id="usuario" name="usuario" value="<?php echo $usuario?>">
+            <input type="hidden" id="idCelular" name="idCelular" value="<?php echo $idCelular?>">
+            <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
+            <input type="hidden" id="linea" name="linea" value="<?php echo $linea?>">
             <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $cuatrigramaDestino?>">
 
             <div class="form-group row">

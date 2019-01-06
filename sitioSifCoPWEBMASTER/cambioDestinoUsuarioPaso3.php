@@ -7,6 +7,7 @@
           $usuario = $_GET['usuario'];
           $nuevoDestino = $_GET['nuevoDestino'];
           $destinoOrigen = $_GET['destinoOrigen'];
+          $observacion = $_GET['observacion'];
           $nuevaZona = obtenerZonaDeLaCualDepende($nuevoDestino, $conexion);
 
 
@@ -14,7 +15,7 @@
 
          $cambioDestinoUsuario = mysqli_query($conexion,$queryCambioDestino) or die("Error en la consulta".mysqli_error($conexion)."$queryCambioDestino");
 
-         $queryInsertarTablaNovedadUsuario = "INSERT INTO novedadesusuarios (idNovedad, idUsuario, tipo, destinoOrigen, trasladoA, fechaInformaNovedad, motivo, observacion) VALUES (0, '$idUsuario', 'TRASLADO', '$destinoOrigen', '$nuevoDestino', CURDATE(), 'unMotivo', 'unaObservacion')";
+         $queryInsertarTablaNovedadUsuario = "INSERT INTO novedadesusuarios (idNovedad, idUsuario, tipo, destinoOrigen, trasladoA, fechaInformaNovedad, observacion) VALUES (0, '$idUsuario', 'TRASLADO', '$destinoOrigen', '$nuevoDestino', CURDATE(), '$observacion')";
 
          $insertarTablaNovedadUsuario = mysqli_query($conexion,$queryInsertarTablaNovedadUsuario) or die("Error en la consulta".mysqli_error($conexion)."$queryInsertarTablaNovedadUsuario");
 

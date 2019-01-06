@@ -41,6 +41,7 @@
                         </div>
                         <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">
                         <input type="hidden" id="usuario" name="usuario" value="<?php echo $usuario?>">
+                        <input type="hidden" id="observacion" name="observacion" value="<?php echo $observacion?>">
                     </form>
                 </div>
                 </div>

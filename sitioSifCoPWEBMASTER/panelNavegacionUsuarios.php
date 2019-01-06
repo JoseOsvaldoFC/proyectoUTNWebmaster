@@ -37,6 +37,9 @@
                                         <a class="dropdown-item" href="formCambioDestinoUsuarioPaso1.php">
                                             Cambio Destino
                                         </a>
+                                        <a class="dropdown-item" href="novedadesUsuarios.php">
+                                            Ver Novedades
+                                        </a>
                                     </div>
                                 </li>
                                 <li class="nav-item active">

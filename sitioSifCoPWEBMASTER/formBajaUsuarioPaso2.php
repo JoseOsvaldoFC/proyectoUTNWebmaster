@@ -106,7 +106,6 @@
                     </output>
                 </div>
             </div>
-
             <div class="form-group text-left">
                 <label for="exampleFormControlTextarea1">Observaciones:</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>

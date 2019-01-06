@@ -8,14 +8,15 @@
       session_start();
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
-            include ('panelNavegacionUsuarios.php');
+            include ('panelNavegacionCelulares.php');
 
-            $idUsuario = $_POST['idUsuario'];
-            $numDni = $_POST['numDni'];
-            $usuario = $_POST['usuario'];
-            $observacion = $_POST['observacion'];
+            $idCelular = $_POST['idCelular'];
+            $imei = $_POST['imei'];
+            $linea = $_POST['linea'];
+            $motivo = $_POST['motivo'];
             $destinoOrigen = $_POST['destinoOrigen'];
             $nuevoDestino = $_POST['nuevoDestino'];
+            $observacion = $_POST['observacion'];
 
          ?>
         <div class="container text-center">
@@ -29,18 +30,18 @@
             <br>
                 <div class="container">
                     <div class="alert alert-warning" role="alert">
-                        ¿Seguro que desea cambiar el destino del usuario <?php echo $usuario; ?> desde el Destino <?php echo $destinoOrigen; ?> a <?php echo $nuevoDestino; ?>?
+                        ¿Seguro que desea cambiar el destino del Celular con IMEI <?php echo $imei; ?> y Nº de Abonado <?php echo $linea; ?> desde el Destino <?php echo $destinoOrigen; ?> a <?php echo $nuevoDestino; ?>?
                     </div>
-                    <form action="cambioDestinoUsuarioPaso3.php" method="GET">
+                    <form action="cambioDestinoCelularPasoFinal.php" method="GET">
                         <div class="form-group row">
                             <div class="col-sm-12">
-                               <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario?>">
-                               <input type="hidden" id="numDni" name="numDni" value="<?php echo $numDni?>">
+                               <input type="hidden" id="idUsuario" name="idCelular" value="<?php echo $idCelular?>">
                                <input type="hidden" id="nuevoDestino" name="nuevoDestino" value="<?php echo $nuevoDestino?>">
                                <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $destinoOrigen?>">
                                <input type="hidden" id="observacion" name="observacion" value="<?php echo $observacion?>">
-                                <input type="hidden" id="usuario" name="usuario" value="<?php echo $usuario?>">
-                                <a href="inicioUsuarios.php">
+                               <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
+                               <input type="hidden" id="imei" name="motivo" value="<?php echo $motivo?>">
+                                <a href="inicioCelulares.php">
                                     volver
                                 </a>
                                 <button class="btn btn-primary" type="submit">
