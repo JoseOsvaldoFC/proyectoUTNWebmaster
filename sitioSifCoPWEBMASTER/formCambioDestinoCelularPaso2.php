@@ -135,7 +135,7 @@
 
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <a href="inicioUsuarios.php">volver</a>
+                    <a href="inicioCelulares.php">volver</a>
                     <button class="btn btn-primary" type="submit">
                         Modificar
                     </button>

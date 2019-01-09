@@ -1,7 +1,9 @@
 <?php 
                 include 'conexion.php';
 
-                $queryNovedadTelefonos = "SELECT idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion FROM trasladostelefonos ORDER BY idCel";
+                //$queryNovedadTelefonos = "SELECT idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion FROM trasladostelefonos ORDER BY idCel";
+                $queryNovedadTelefonos = "SELECT tt.idCel, tt.destinoOrigen, tt.trasladoA, tt.fechaMovimiento, tt.motivo, tt.observacion, te.imei, te.linea FROM trasladostelefonos AS tt, telefonos AS te WHERE tt.idCel=te.idCel ORDER BY idCel";
+
                 $consulta = mysqli_query($conexion,$queryNovedadTelefonos);
  ?>
 <!doctype html>
@@ -25,8 +27,9 @@
         <table class="table table-bordered text-center">
           <thead>
             <tr class="table-active">
-              <th scope="col">NUM</th>
-              <th scope="col">ID CELULAR</th>
+              <th scope="col">ID CEL</th>
+              <th scope="col">IMEI</th>
+              <th scope="col">linea</th>
               <th scope="col">DESTINO ORIGEN</th>
               <th scope="col">TRASLADO A</th>
               <th scope="col">FECHA MOVIMIENTO</th>
@@ -36,17 +39,16 @@
           </thead>
           <tbody>
           <?php 
-            $contadorCel = 0;
             /* procesar resultados*/
             while ($resultados=mysqli_fetch_array($consulta)) {
               $formatoFila = "";
               if ($resultados['motivo'] == 'BAJA'){
                 $formatoFila = "FormatoFila";
               }
-              $contadorCel += 1;
               echo "<tr class='$formatoFila'>";
-              echo "<th scope='row'>".$contadorCel."</th>";
-              echo "<td>". $resultados['idCel']."</td>";
+              echo "<th scope='row'>".$resultados['idCel']."</th>";
+              echo "<td>". $resultados['imei']."</td>";
+              echo "<td>". $resultados['linea']."</td>";
               echo "<td>". $resultados['destinoOrigen']."</td>";
               echo "<td>". $resultados['trasladoA']."</td>";
               echo "<td>".$resultados['fechaMovimiento']."</td>";
