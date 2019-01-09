@@ -39,7 +39,11 @@
           <tbody>
           <?php 
             while ($resultados=mysqli_fetch_array($consulta)) {
-              echo "<tr>";
+              $formatoFila = "";
+              if ($resultados['tipo'] == 'BAJA'){
+                $formatoFila = "FormatoFila";
+              }
+              echo "<tr class='$formatoFila'>";
               echo "<th scope='row'>".utf8_encode($resultados['apellidoNombre'])."</th>";
               echo "<td>".$resultados['numDni']."</td>";
               echo "<td>".$resultados['tipo']."</td>";

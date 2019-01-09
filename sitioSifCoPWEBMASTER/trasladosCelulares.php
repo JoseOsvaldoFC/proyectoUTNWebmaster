@@ -39,8 +39,12 @@
             $contadorCel = 0;
             /* procesar resultados*/
             while ($resultados=mysqli_fetch_array($consulta)) {
+              $formatoFila = "";
+              if ($resultados['motivo'] == 'BAJA'){
+                $formatoFila = "FormatoFila";
+              }
               $contadorCel += 1;
-              echo "<tr>";
+              echo "<tr class='$formatoFila'>";
               echo "<th scope='row'>".$contadorCel."</th>";
               echo "<td>". $resultados['idCel']."</td>";
               echo "<td>". $resultados['destinoOrigen']."</td>";
