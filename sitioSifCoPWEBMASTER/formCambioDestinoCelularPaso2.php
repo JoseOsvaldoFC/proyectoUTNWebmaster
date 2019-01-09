@@ -127,12 +127,10 @@
                 <label for="exampleFormControlTextarea1">Observación:</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>
               </div>
-
             <input type="hidden" id="idCelular" name="idCelular" value="<?php echo $idCelular?>">
             <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
             <input type="hidden" id="linea" name="linea" value="<?php echo $linea?>">
             <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $cuatrigramaDestino?>">
-
             <div class="form-group row">
                 <div class="col-sm-12">
                     <a href="inicioCelulares.php">volver</a>
