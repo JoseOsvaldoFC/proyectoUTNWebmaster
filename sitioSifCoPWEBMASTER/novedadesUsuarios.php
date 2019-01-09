@@ -28,7 +28,7 @@
           <thead>
             <tr class="table-active">
               <th scope="col">APELLIDO Y NOMBRE</th>
-              <th scope="col">NÚM. DOCUMENTO</th>
+              <th scope="col">Nº de DNI</th>
               <th scope="col">TIPO</th>
               <th scope="col">DESTINO ORIGEN</th>
               <th scope="col">TRASLADO A</th>
