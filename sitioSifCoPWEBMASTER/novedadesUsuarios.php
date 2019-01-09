@@ -1,7 +1,7 @@
 
 <?php 
                 include 'conexion.php';
-                $queryNovedadesUsuarios = "SELECT idNovedad, idUsuario, tipo, destinoOrigen, trasladoA, fechaInformaNovedad, observacion FROM novedadesUsuarios ORDER BY idUsuario";
+                $queryNovedadesUsuarios = "SELECT ns.idUsuario, ns.tipo, ns.destinoOrigen, ns.trasladoA, ns.fechaInformaNovedad, ns.observacion, us.apellidoNombre, us.numDni FROM novedadesusuarios AS ns, usuariossifcop AS us WHERE ns.idUsuario = us.idUsuario";
                 $consulta = mysqli_query($conexion,$queryNovedadesUsuarios);
  ?>
 
@@ -27,8 +27,8 @@
         <table class="table table-bordered text-center">
           <thead>
             <tr class="table-active">
-              <th scope="col">NUMERACION</th>
-              <th scope="col">ID USUARIO</th>
+              <th scope="col">APELLIDO Y NOMBRE</th>
+              <th scope="col">NÚM. DOCUMENTO</th>
               <th scope="col">TIPO</th>
               <th scope="col">DESTINO ORIGEN</th>
               <th scope="col">TRASLADO A</th>
@@ -38,12 +38,10 @@
           </thead>
           <tbody>
           <?php 
-            $contadorUsuario = 0;
             while ($resultados=mysqli_fetch_array($consulta)) {
-              $contadorUsuario += 1;
               echo "<tr>";
-              echo "<th scope='row'>".$contadorUsuario."</th>";
-              echo "<td>".utf8_encode($resultados['idUsuario'])."</td>";
+              echo "<th scope='row'>".utf8_encode($resultados['apellidoNombre'])."</th>";
+              echo "<td>".$resultados['numDni']."</td>";
               echo "<td>".$resultados['tipo']."</td>";
               echo "<td>".$resultados['destinoOrigen']."</td>";
               echo "<td>".$resultados['trasladoA']."</td>";
