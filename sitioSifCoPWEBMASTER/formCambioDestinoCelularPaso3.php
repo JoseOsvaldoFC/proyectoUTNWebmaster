@@ -16,6 +16,7 @@
             $motivo = $_POST['motivo'];
             $destinoOrigen = $_POST['destinoOrigen'];
             $nuevoDestino = $_POST['nuevoDestino'];
+            $fechaMovimiento = $_POST['fechaMovimiento'];
             $observacion = $_POST['observacion'];
 
          ?>
@@ -40,7 +41,8 @@
                                <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $destinoOrigen?>">
                                <input type="hidden" id="observacion" name="observacion" value="<?php echo $observacion?>">
                                <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
-                               <input type="hidden" id="imei" name="motivo" value="<?php echo $motivo?>">
+                               <input type="hidden" id="motivo" name="motivo" value="<?php echo $motivo?>">
+                               <input type="hidden" id="fechaMovimiento" name="fechaMovimiento" value="<?php echo $fechaMovimiento?>">
                                 <a href="inicioCelulares.php">
                                     volver
                                 </a>

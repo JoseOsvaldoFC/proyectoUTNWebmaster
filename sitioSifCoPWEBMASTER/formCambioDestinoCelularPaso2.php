@@ -3,6 +3,11 @@
     <?php 
       include ('headSifcop.php');
      ?>
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/messages/messages.es-es.js" type="text/javascript"></script>
+     <script src="bootstrap-datepicker.es.js" charset="UTF-8"></script>
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <body>
      <?php 
       session_start();
@@ -123,6 +128,33 @@
                   </select>
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="inlineZona">
+                        Fecha Movimiento:
+                </label>
+                <div class="col-sm-7">
+                    <input id="datepicker" class="my-1 mr-sm-2" width="276" name="fechaMovimiento"/>
+                    <script>
+                        $('#datepicker').datepicker({
+                            uiLibrary: 'bootstrap4',
+                            format: 'yyyy-mm-dd',
+                            locale: 'es-es',
+                        });
+                    </script>
+                </div>
+            </div>
+            <br>
+            <div class="container-fluid form-group row">
+                <div class="col-5">
+                    <label for="exampleFormControlFile1">
+                    Seleccione Archivo con la Constancia del Movimiento:
+                    </label>
+                </div>
+                <div class="col-7">
+                   <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </div>
+            <br>
               <div class="form-group text-left">
                 <label for="exampleFormControlTextarea1">Observación:</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacion"></textarea>
