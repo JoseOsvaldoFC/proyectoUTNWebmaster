@@ -40,9 +40,11 @@
             /* procesar resultados*/
             while ($resultados=mysqli_fetch_array($consulta)) {
               $contadorCel += 1;
+              $idCel = $resultados['idCel'];
               echo "<tr>";
               echo "<th scope='row'>".$contadorCel."</th>";
-              echo "<td>". $resultados['idCel']."</td>";
+              echo "<td>"."<a href='viewDetalleCelular.php?idCel=$idCel'>$idCel</a>"."</td>";
+              /*echo "<td>". $resultados['idCel']."</td>";*/
               echo "<td>". $resultados['imei']."</td>";
               echo "<td>". $resultados['linea']."</td>";
               echo "<td>".$resultados['modelo']."</td>";

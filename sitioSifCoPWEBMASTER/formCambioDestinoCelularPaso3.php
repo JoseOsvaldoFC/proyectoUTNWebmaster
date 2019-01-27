@@ -9,7 +9,16 @@
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
             include ('panelNavegacionCelulares.php');
-
+            $nombreArchivo = $_POST['idCelular']."-".date('z').date('m').date('Y').date('B').substr($_FILES['archivo']['name'],-4);
+            $tipoArchivo = $_FILES['archivo']['type'];
+            $tamanioArchivo = $_FILES['archivo']['size'];
+            $rutaArchivo = $_FILES['archivo']['tmp_name'];
+            $destinoArchivo = "img/documentacion/".$nombreArchivo;
+            if($nombreArchivo != ""){
+                  if(!(copy($rutaArchivo, $destinoArchivo))){
+                       echo "error al subir el archivo";
+                }
+            }
             $idCelular = $_POST['idCelular'];
             $imei = $_POST['imei'];
             $linea = $_POST['linea'];
@@ -43,6 +52,7 @@
                                <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
                                <input type="hidden" id="motivo" name="motivo" value="<?php echo $motivo?>">
                                <input type="hidden" id="fechaMovimiento" name="fechaMovimiento" value="<?php echo $fechaMovimiento?>">
+                               <input type="hidden" id="destinoArchivo" name="destinoArchivo" value="<?php echo $destinoArchivo?>">
                                 <a href="inicioCelulares.php">
                                     volver
                                 </a>
