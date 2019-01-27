@@ -43,7 +43,7 @@
               $idCel = $resultados['idCel'];
               echo "<tr>";
               echo "<th scope='row'>".$contadorCel."</th>";
-              echo "<td>"."<a href='viewDetalleCelular.php?idCel=$idCel'>$idCel</a>"."</td>";
+              echo "<td>"."<a href='viewDetalleCelular.php?idCel=$idCel'>$idCel<span class='icon-text-document'></span></a>"."</td>";
               /*echo "<td>". $resultados['idCel']."</td>";*/
               echo "<td>". $resultados['imei']."</td>";
               echo "<td>". $resultados['linea']."</td>";

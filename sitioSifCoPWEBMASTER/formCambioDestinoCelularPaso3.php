@@ -13,7 +13,7 @@
             $tipoArchivo = $_FILES['archivo']['type'];
             $tamanioArchivo = $_FILES['archivo']['size'];
             $rutaArchivo = $_FILES['archivo']['tmp_name'];
-            $destinoArchivo = "img/documentacion/".$nombreArchivo;
+            $destinoArchivo = "img/documentacion/web/".$nombreArchivo;
             if($nombreArchivo != ""){
                   if(!(copy($rutaArchivo, $destinoArchivo))){
                        echo "error al subir el archivo";

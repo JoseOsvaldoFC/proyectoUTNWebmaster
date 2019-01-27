@@ -106,11 +106,7 @@
             </div>
             <div class="form-group row">
             </div>
-
-            <br>
           <h3>Movimientos</h3>
-
-            
           <div class="container">
         <table class="table table-bordered text-center">
           <thead>
@@ -134,7 +130,8 @@
                 $formatoFila = "FormatoFila";
               }
               echo "<tr class='$formatoFila'>";
-              echo "<th scope='row'>".$resultados['idCel']."</th>";
+            /*  echo "<th scope='row'>".$resultados['idCel']."<span class='icon-link'></span></th>";*/
+              echo "<th scope='row'>"."<a href='#'>".$resultados['idCel']."<span class='icon-link'></span></a>"."</th>";
               echo "<td>". $resultados['imei']."</td>";
               echo "<td>". $resultados['linea']."</td>";
               echo "<td>". $resultados['destinoOrigen']."</td>";
@@ -148,9 +145,7 @@
           ?>
           </tbody>
         </table>
-                </div>
-
-
+            </div>
             <input type="hidden" id="idCelular" name="idCelular" value="<?php echo $idCelular?>">
             <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
             <input type="hidden" id="linea" name="linea" value="<?php echo $linea?>">
@@ -170,7 +165,7 @@
         <?php 
             include('footer.php');
             include('scriptJSBootstrap.php');
-                              } else {
+           } else {
         ?>
         <script>
           alert("Debe ser usuario registrado");
