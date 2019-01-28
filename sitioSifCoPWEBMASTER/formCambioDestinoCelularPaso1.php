@@ -28,7 +28,7 @@
                   <div class="form-group row container">
                     <label for="dniUsuario" class="col-sm-2 col-form-label">ID del Celular:</label>
                     <div class="col-sm-7">
-                      <input class="form-control" id="idCelular" placeholder="Id del Celular" name="idCelular">
+                      <input class="form-control" id="idCelular" placeholder="Id del Celular" name="idCelular" required="true">
                       <br>
                   </div>
               </div>

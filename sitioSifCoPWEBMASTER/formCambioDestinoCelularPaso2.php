@@ -132,7 +132,7 @@
                         Fecha Movimiento:
                 </label>
                 <div class="col-sm-7">
-                    <input id="datepicker" class="my-1 mr-sm-2" width="276" name="fechaMovimiento"/>
+                    <input id="datepicker" class="my-1 mr-sm-2" width="276" name="fechaMovimiento" required="true"/>
                     <script>
                         $('#datepicker').datepicker({
                             uiLibrary: 'bootstrap4',
@@ -150,7 +150,7 @@
                     </label>
                 </div>
                 <div class="col-7">
-                   <input type="file" name="archivo" id="archivo" class="form-control-file" id="exampleFormControlFile1"/>
+                   <input type="file" name="archivo" id="archivo" class="form-control-file" id="exampleFormControlFile1" required="true"/>
                 </div>
             </div>
             <br>

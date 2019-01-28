@@ -21,7 +21,7 @@
             $consulta = mysqli_query($conexion,$queryCelular);
 
             //$queryNovedadTelefonos = "SELECT idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion FROM trasladostelefonos ORDER BY idCel";
-            $queryNovedadTelefonos = "SELECT tt.idCel, tt.destinoOrigen, tt.trasladoA, tt.fechaMovimiento, tt.motivo, tt.observacion, te.imei, te.linea FROM trasladostelefonos AS tt, telefonos AS te WHERE tt.idCel=te.idCel AND tt.idCel = $idCelular ORDER BY tt.fechaMovimiento";
+            $queryNovedadTelefonos = "SELECT tt.idCel, tt.destinoOrigen, tt.trasladoA, tt.fechaMovimiento, tt.motivo, tt.observacion, tt.rutaImagenDocumentacion, te.imei, te.linea FROM trasladostelefonos AS tt, telefonos AS te WHERE tt.idCel=te.idCel AND tt.idCel = $idCelular ORDER BY tt.fechaMovimiento";
             $consultaNovedad = mysqli_query($conexion,$queryNovedadTelefonos);
 
             $resultado = mysqli_fetch_array($consulta);
@@ -126,12 +126,13 @@
             /* procesar resultados*/
             while ($resultados=mysqli_fetch_array($consultaNovedad)) {
               $formatoFila = "";
+              $rutaImagenDocumentacion = $resultados['rutaImagenDocumentacion'];
               if ($resultados['motivo'] == 'BAJA'){
                 $formatoFila = "FormatoFila";
               }
               echo "<tr class='$formatoFila'>";
             /*  echo "<th scope='row'>".$resultados['idCel']."<span class='icon-link'></span></th>";*/
-              echo "<th scope='row'>"."<a href='#'>".$resultados['idCel']."<span class='icon-link'></span></a>"."</th>";
+              echo "<th scope='row'>"."<a href='$rutaImagenDocumentacion'>".$resultados['idCel']."<span class='icon-link'></span></a>"."</th>";
               echo "<td>". $resultados['imei']."</td>";
               echo "<td>". $resultados['linea']."</td>";
               echo "<td>". $resultados['destinoOrigen']."</td>";
