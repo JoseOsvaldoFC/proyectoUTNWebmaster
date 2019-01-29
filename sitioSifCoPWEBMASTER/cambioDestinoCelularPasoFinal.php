@@ -22,14 +22,8 @@
          $queryInsertarTablaNovedadCelular = "INSERT INTO trasladostelefonos (idNovedad, idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion, rutaImagenDocumentacion) VALUES (0, '$idCelular', '$destinoOrigen', '$nuevoDestino', '$fechaMovimiento', '$motivo', '$observacion', '$destinoArchivo')";
          $insertarTablaNovedadCelular = mysqli_query($conexion,$queryInsertarTablaNovedadCelular) or die("Error en la consulta".mysqli_error($conexion)."$queryInsertarTablaNovedadCelular");
          if ($cambioDestinoCelular==true AND $insertarTablaNovedadCelular==true) {
-          echo "<div class='alert alert-success' role='alert'>
-          El Celular con el IMEI ".$imei." ha sido cambiado el destino satisfactoriamente
-          </div>";
-          include("inicioCelulares.php");
+          header("Location: inicioCelulares.php?cargado=1&imei=$imei");
         } else {
-          echo "<div class='alert alert-danger' role='alert'>
-          Hubo un error en el cambio de destino, intente nuevamente
-          </div>";
-          include("formCambioDestinoCelularPaso1.php");
+          header("Location: inicioCelulares.php?cargado=0&imei=$imei");
         }
 ?>

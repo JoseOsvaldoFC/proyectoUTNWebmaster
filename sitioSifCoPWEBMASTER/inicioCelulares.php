@@ -13,6 +13,19 @@
            <?php 
       session_start();
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
+        //Para el feedback de la carga
+        if(isset($_GET['cargado']) && isset($_GET['imei'])){
+          if ($_GET['cargado']==1) {
+            echo "<div class='alert alert-success' role='alert'>
+            El Celular con el IMEI ".$_GET['imei']." ha sido cambiado el destino satisfactoriamente
+            </div>";
+          } 
+          if ($_GET['cargado']==0) {
+            echo "<div class='alert alert-danger' role='alert'>
+            Hubo un error en la carga del traslado, intente nuevamente
+            </div>";
+          }
+        }
             include ('encabezado.php');
             include ('panelNavegacionCelulares.php');
         ?>
