@@ -37,7 +37,7 @@
             <input type="range" class="custom-range" id="customRange2"  min="0" max="1" step="0.5">
         </div>
         <div class="container">
-            <h5>Seleccione ID del Usuario</h3>
+            <h5>Complete los campos para la carga de la novedad</h5>
             <br>
         </div>
         <div class="container">
@@ -132,11 +132,12 @@
                         Fecha Movimiento:
                 </label>
                 <div class="col-sm-7">
-                    <input id="datepicker" class="my-1 mr-sm-2" width="276" name="fechaMovimiento" required="true"/>
+                    <input id="datepicker" class="my-1 mr-sm-2" width="276" name="fechaMovimiento" required="true" placeholder="dd-mm-aaaa"/>
                     <script>
                         $('#datepicker').datepicker({
                             uiLibrary: 'bootstrap4',
-                            format: 'yyyy-mm-dd',
+                            /*format: 'yyyy-mm-dd',*/
+                            format: 'dd-mm-yyyy',
                             locale: 'es-es',
                         });
                     </script>

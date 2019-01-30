@@ -11,7 +11,7 @@
           $observacion = $_GET['observacion'];
           $destinoArchivo = $_GET['destinoArchivo'];
           $nuevaZona = obtenerZonaDeLaCualDepende($nuevoDestino, $conexion);
-          $fechaMovimiento = $_GET['fechaMovimiento'];
+          $fechaMovimiento = darVueltaFechaDDAAAA($_GET['fechaMovimiento']);
           if ($motivo == 'BAJA') {
             $estado = 'BAJA';
           } else {

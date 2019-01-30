@@ -28,5 +28,13 @@
 		$consultaCelular = mysqli_query($conexion, $queryValidacionCelular);
 		return mysqli_num_rows($consultaCelular);
 	}
+
+	function darVueltaFechaDDAAAA($fecha)
+	{
+		trim($fecha);
+		$arrayFecha = explode("-", str_replace("/","-",$fecha));
+		return ($arrayFecha[2]."-".$arrayFecha[1]."-".$arrayFecha[0]);
+	}
+
 ?>
 

@@ -13,8 +13,9 @@
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
             include ('panelNavegacionCelulares.php');
+            include('funcionesAuxiliares.php');
             include ('conexion.php');
-            include 'queryDestinosYZonas.php';
+            include ('queryDestinosYZonas.php');
             $idCelular = $_GET['idCel'];
             $queryCelular = "SELECT idCel, patrimonial, imei, linea, modelo, cuatrigramaZona, cuatrigramaDestino, estado FROM telefonos WHERE idCel = $idCelular";
             $consulta = mysqli_query($conexion,$queryCelular);
@@ -142,7 +143,7 @@
               echo "<th scope='row'>"."<a href='$rutaImagenDocumentacion'>"."<span class='icon-link'></span></a>"."</th>";
               echo "<td>". $resultados['destinoOrigen']."</td>";
               echo "<td>". $resultados['trasladoA']."</td>";
-              echo "<td>".$resultados['fechaMovimiento']."</td>";
+              echo "<td>".darVueltaFechaDDAAAA($resultados['fechaMovimiento'])."</td>";
               echo "<td>".utf8_encode($resultados['motivo'])."</td>";
               echo "<td>".$resultados['observacion']."</td>";
               echo  "</tr>";
