@@ -94,7 +94,8 @@
                 </div>
                  <label for="inputNuevoDestino" class="col-sm-2 col-form-label">Nuevo Destino:</label>
                 <div class="col-sm-3">
-                    <select class="custom-select my-1 mr-sm-2" id="inputNuevoDestino" name="nuevoDestino">
+                    <select class="custom-select my-1 mr-sm-2" id="inputNuevoDestino" name="nuevoDestino" required="true">
+                    <option value=''>Selecciones un Destino</option>
                     <?php 
                       while ($resultadosDestino=mysqli_fetch_array($consultaDestinos)) {
                         $datoDestino = $resultadosDestino['cuatrigramaDestino'];
@@ -115,7 +116,8 @@
                 </div>
                  <label for="inputMotivo" class="col-sm-2 col-form-label">Motivo:</label>
                 <div class="col-sm-3">
-                    <select class="custom-select my-1 mr-sm-2" id="inputMotivo" name="motivo">
+                    <select class="custom-select my-1 mr-sm-2" id="inputMotivo" name="motivo" required="true">
+                    <option value=''>Selecciones un Motivo</option>
                     <?php 
                       $queryMotivos = "SELECT idMotivo, descripcionMotivo from motivosTelefono";
                       $consultaMotivos = mysqli_query($conexion,$queryMotivos);
