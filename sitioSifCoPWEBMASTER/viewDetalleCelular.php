@@ -42,7 +42,7 @@
         </div>
         <div class="container">
            <div class="container text-center">
-        <form action="inicioCelulares.php" method="POST" enctype="multipart/form-data">
+        <form action="inicioCelulares.php?perfil=pzag" method="POST" enctype="multipart/form-data">
 
         <div class="form-group row conteiner">
                 <label class="col-sm-2 col-form-label" for="id">
@@ -115,6 +115,14 @@
                 </div>
             </div>
             <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="inputEstado">
+                    Estado:
+                </label>
+                <div class="col-sm-3">
+                    <output class="form-control" id="inputEstado" placeholder="inputEstado">
+                        <?php echo $estado; ?>
+                    </output>
+                </div>
             </div>
           <h3>Movimientos</h3>
           <div class="container">
@@ -157,6 +165,7 @@
             <input type="hidden" id="imei" name="imei" value="<?php echo $imei?>">
             <input type="hidden" id="linea" name="linea" value="<?php echo $linea?>">
             <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $cuatrigramaDestino?>">
+
             <div class="form-group row">
                 <div class="col-sm-12">
                     <button class="btn btn-primary" type="submit">

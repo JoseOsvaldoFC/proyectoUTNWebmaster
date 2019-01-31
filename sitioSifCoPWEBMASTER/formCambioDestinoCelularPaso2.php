@@ -43,7 +43,20 @@
         <div class="container">
            <div class="container text-center">
         <form action="formCambioDestinoCelularPaso3.php" method="POST" enctype="multipart/form-data">
-            <div class="form-group row conteiner">
+           
+        <div class="form-group row conteiner">
+                <label class="col-sm-2 col-form-label" for="idCelular">
+                    Id Celular:
+                </label>
+                <div class="col-sm-7">
+                    <output class="form-control" id="idCelular" placeholder="Id Celular:">
+                        <?php echo $idCelular; ?>
+                    </output>
+                </div>
+            </div>
+
+           
+            <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="patrimonial">
                     Número Patrimonial:
                 </label>
@@ -83,6 +96,17 @@
                     </output>
                 </div>
             </div>
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="inputEstado">
+                    Estado:
+                </label>
+                <div class="col-sm-7">
+                    <output class="form-control" id="inputEstado" placeholder="inputEstado">
+                        <?php echo $estado; ?>
+                    </output>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="inputDestino">
                     Destino:
