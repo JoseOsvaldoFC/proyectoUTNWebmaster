@@ -18,10 +18,30 @@
                                         Inicio
                                     </a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="inicioCelulares.php">
+                                <li class="nav-item dropdown">
+                                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
                                         Celulares
                                     </a>
+                                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                                        <a class="dropdown-item" href="inicioCelulares.php?perfil=pzag">
+                                          PZ y AGAL (ALTA)
+                                        </a>
+                                        <a class="dropdown-item" href="inicioCelulares.php?perfil=dicr">
+                                          DICR (ALTA)
+                                        </a>
+                                        <a class="dropdown-item" href="inicioCelulares.php?perfil=reop">
+                                          RESERVA OPERATIVA
+                                        </a>
+                                        <a class="dropdown-item" href="inicioCelulares.php?perfil=baja">
+                                         En Estado de BAJA
+                                        </a>
+                                        <a class="dropdown-item" href="inicioCelulares.php?perfil=alta">
+                                         En Estado de ALTA
+                                        </a>
+                                        <a class="dropdown-item" href="inicioCelulares.php?perfil=todos">
+                                          TODOS
+                                        </a>
+                                    </div>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">

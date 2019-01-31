@@ -53,7 +53,7 @@
                                <input type="hidden" id="motivo" name="motivo" value="<?php echo $motivo?>">
                                <input type="hidden" id="fechaMovimiento" name="fechaMovimiento" value="<?php echo $fechaMovimiento?>">
                                <input type="hidden" id="destinoArchivo" name="destinoArchivo" value="<?php echo $destinoArchivo?>">
-                                <a href="inicioCelulares.php">
+                                <a href="formCambioDestinoCelularPaso2.php?idCelular=<?php echo $idCelular?>">
                                     volver
                                 </a>
                                 <button class="btn btn-primary" type="submit">

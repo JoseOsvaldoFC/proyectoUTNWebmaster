@@ -9,6 +9,7 @@
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
             include ('encabezado.php');
             include ('panelNavegacionCelulares.php');
+            $idCel = (isset($_GET['idCel'])) ? $_GET['idCel'] : "";
          ?>
         <div class="container text-center">
           <h3>Cambio Destino</h3>
@@ -28,13 +29,13 @@
                   <div class="form-group row container">
                     <label for="dniUsuario" class="col-sm-2 col-form-label">ID del Celular:</label>
                     <div class="col-sm-7">
-                      <input class="form-control" id="idCelular" placeholder="Id del Celular" name="idCelular" required="true">
+                      <input class="form-control" id="idCelular" placeholder="Id del Celular" name="idCelular" required="true" value="<?php echo $idCel?>">
                       <br>
                   </div>
               </div>
               <div class="form-group row">
                 <div class="col-sm-12">
-                <a href="inicioCelulares.php">volver</a>
+                <a href="inicioCelulares.php?perfil=pzag">volver</a>
                   <button type="submit" class="btn btn-primary">Continuar</button>
                  </div>
               </div>

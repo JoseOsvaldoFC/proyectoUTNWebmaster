@@ -1,7 +1,29 @@
 <?php 
                 include 'conexion.php';
 
-                $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo FROM telefonos WHERE estado = 'ALTA' AND cuatrigramaDestino <> 'RESERVA G20' AND cuatrigramaZona <> 'DICR' ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                if (isset($_GET['perfil'])) {
+                  if ($_GET['perfil'] == 'pzag') {
+                    $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos WHERE estado LIKE '%ALTA%' AND (cuatrigramaZona LIKE '%PZ%' OR cuatrigramaDestino LIKE '%AGAL%') ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                  }
+                  if ($_GET['perfil'] == 'dicr') {
+                    $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos WHERE estado LIKE '%ALTA%' AND cuatrigramaZona LIKE '%DICR%' ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                  }
+                  if ($_GET['perfil'] == 'reop') {
+                    $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos WHERE estado LIKE '%ALTA%' AND cuatrigramaDestino LIKE '%RESERVA%' ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                  }
+                  if ($_GET['perfil'] == 'baja') {
+                    $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos WHERE estado LIKE '%BAJA%' ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                  }
+                  if ($_GET['perfil'] == 'alta') {
+                    $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos WHERE estado LIKE '%ALTA%' ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                  }
+                  if ($_GET['perfil'] == 'todos') {
+                    $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                  }
+                } else {
+                  $queryTelefonos = "SELECT idCel, cuatrigramaZona, cuatrigramaDestino, imei, linea, modelo, estado FROM telefonos WHERE estado = 'ALTA' AND cuatrigramaDestino <> 'RESERVA G20' AND cuatrigramaZona <> 'DICR' ORDER BY cuatrigramaZona, cuatrigramaDestino";
+                }
+                
                 $consulta = mysqli_query($conexion,$queryTelefonos);
  ?>
 <!doctype html>

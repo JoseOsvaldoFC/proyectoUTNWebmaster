@@ -19,7 +19,7 @@
           }
          $queryCambioDestino = "UPDATE telefonos SET cuatrigramaDestino = '$nuevoDestino', cuatrigramaZona = '$nuevaZona', estado = '$estado' WHERE idCel = $idCelular";
          $cambioDestinoCelular = mysqli_query($conexion,$queryCambioDestino) or die("Error en la consulta".mysqli_error($conexion)."$queryCambioDestino");
-         $queryInsertarTablaNovedadCelular = "INSERT INTO trasladostelefonos (idNovedad, idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion, rutaImagenDocumentacion) VALUES (0, '$idCelular', '$destinoOrigen', '$nuevoDestino', '$fechaMovimiento', '$motivo', '$observacion', '$destinoArchivo')";
+         $queryInsertarTablaNovedadCelular = "INSERT INTO trasladostelefonos (idNovedad, idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion, rutaImagenDocumentacion) VALUES (0, $idCelular, '$destinoOrigen', '$nuevoDestino', '$fechaMovimiento', '$motivo', '$observacion', '$destinoArchivo')";
          $insertarTablaNovedadCelular = mysqli_query($conexion,$queryInsertarTablaNovedadCelular) or die("Error en la consulta".mysqli_error($conexion)."$queryInsertarTablaNovedadCelular");
          if ($cambioDestinoCelular==true AND $insertarTablaNovedadCelular==true) {
           header("Location: inicioCelulares.php?cargado=1&imei=$imei");

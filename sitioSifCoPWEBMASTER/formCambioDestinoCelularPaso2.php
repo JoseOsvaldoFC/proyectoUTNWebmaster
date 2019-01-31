@@ -167,7 +167,7 @@
             <input type="hidden" id="destinoOrigen" name="destinoOrigen" value="<?php echo $cuatrigramaDestino?>">
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <a href="inicioCelulares.php">volver</a>
+                    <a href="formCambioDestinoCelularPaso1.php?idCel=<?php echo $idCelular?>">volver</a>
                     <button class="btn btn-primary" type="submit">
                         Modificar
                     </button>
