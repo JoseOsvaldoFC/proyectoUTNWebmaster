@@ -120,6 +120,10 @@ textarea {
 .FormatoFila{
     background-color: #f9acb3;
 }
+.alinearBotton{
+    text-align: center;
+    padding-top: 25px;
+}
 /*.probandoParallax*/
 /*body{background: #4c8dce}*/
 

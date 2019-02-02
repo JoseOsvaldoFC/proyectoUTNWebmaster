@@ -28,7 +28,7 @@
                   <div class="form-group row container">
                     <label for="dniUsuario" class="col-sm-2 col-form-label">DNI del Usuario:</label>
                     <div class="col-sm-7">
-                      <input class="form-control" id="dniUsuario" placeholder="DNI del Usuario" name="numDni">
+                      <input class="form-control" id="dniUsuario" placeholder="DNI del Usuario" name="numDni" required="true">
                       <br>
                   </div>
               </div>

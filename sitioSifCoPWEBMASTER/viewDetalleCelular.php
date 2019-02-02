@@ -20,7 +20,7 @@
             $queryCelular = "SELECT idCel, patrimonial, imei, linea, modelo, cuatrigramaZona, cuatrigramaDestino, estado FROM telefonos WHERE idCel = $idCelular";
             $consulta = mysqli_query($conexion,$queryCelular);
             //$queryNovedadTelefonos = "SELECT idCel, destinoOrigen, trasladoA, fechaMovimiento, motivo, observacion FROM trasladostelefonos ORDER BY idCel";
-            $queryNovedadTelefonos = "SELECT tt.idCel, tt.destinoOrigen, tt.trasladoA, tt.fechaMovimiento, tt.motivo, tt.observacion, tt.rutaImagenDocumentacion, te.imei, te.linea FROM trasladostelefonos AS tt, telefonos AS te WHERE tt.idCel=te.idCel AND tt.idCel = $idCelular ORDER BY tt.fechaMovimiento";
+            $queryNovedadTelefonos = "SELECT tt.idNovedad, tt.idCel, tt.destinoOrigen, tt.trasladoA, tt.fechaMovimiento, tt.motivo, tt.observacion, tt.rutaImagenDocumentacion, te.imei, te.linea FROM trasladostelefonos AS tt, telefonos AS te WHERE tt.idCel=te.idCel AND tt.idCel = $idCelular ORDER BY tt.fechaMovimiento";
             $consultaNovedad = mysqli_query($conexion,$queryNovedadTelefonos);
 
             $resultado = mysqli_fetch_array($consulta);
@@ -148,7 +148,15 @@
               }
               echo "<tr class='$formatoFila'>";
             /*  echo "<th scope='row'>".$resultados['idCel']."<span class='icon-link'></span></th>";*/
-              echo "<th scope='row'>"."<a href='$rutaImagenDocumentacion'>"."<span class='icon-link'></span></a>"."</th>";
+              if (!empty($rutaImagenDocumentacion)) {
+                echo "<th scope='row'>"."<a href='$rutaImagenDocumentacion'>"."<span class='icon-link'></span></a>"."</th>";
+              } else {
+                $idNovedad = $resultados['idNovedad'];
+                /*echo "<th scope='row'>"."NO TIENE ADJUNTO"."<a href='formEditarDocumentacion.php?idNovedad=$idNovedad'>"."<span class='icon-edit'></span></a>"."</th>";*/
+?>
+<th scope='row'>AGREGAR ADJUNTO<a href="#" onclick="window.open('formEditarDocumentacion.php?idNovedad=<?=$idNovedad?>&idCelular=<?=$idCelular?>','Pop-up Apo','width=800,height=200')"><span class='icon-edit'></span></a></th>
+<?php
+              }
               echo "<td>". $resultados['destinoOrigen']."</td>";
               echo "<td>". $resultados['trasladoA']."</td>";
               echo "<td>".darVueltaFechaDDAAAA($resultados['fechaMovimiento'])."</td>";
