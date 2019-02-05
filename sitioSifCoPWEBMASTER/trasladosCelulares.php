@@ -15,6 +15,7 @@
            <?php 
       session_start();
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
+            include('funcionesAuxiliares.php');
             include ('encabezado.php');
             include ('panelNavegacionCelulares.php');
         ?>
@@ -51,7 +52,7 @@
               echo "<td>". $resultados['linea']."</td>";
               echo "<td>". $resultados['destinoOrigen']."</td>";
               echo "<td>". $resultados['trasladoA']."</td>";
-              echo "<td>".$resultados['fechaMovimiento']."</td>";
+              echo "<td>".darVueltaFechaDDAAAA($resultados['fechaMovimiento'])."</td>";
               echo "<td>".utf8_encode($resultados['motivo'])."</td>";
               echo "<td>".$resultados['observacion']."</td>";
               echo  "</tr>";

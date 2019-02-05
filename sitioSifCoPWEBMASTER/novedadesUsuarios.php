@@ -14,6 +14,7 @@
            <?php 
       session_start();
       if (isset($_SESSION['usuario']) AND isset($_SESSION['idUsuarioAcceso'])) {
+            include('funcionesAuxiliares.php'); 
             include ('encabezado.php');
             include ('panelNavegacionUsuarios.php');
          ?>
@@ -49,7 +50,7 @@
               echo "<td>".$resultados['tipo']."</td>";
               echo "<td>".$resultados['destinoOrigen']."</td>";
               echo "<td>".$resultados['trasladoA']."</td>";
-              echo "<td>".utf8_encode($resultados['fechaInformaNovedad'])."</td>";
+              echo "<td>".darVueltaFechaDDAAAA($resultados['fechaInformaNovedad'])."</td>";
               echo "<td>".utf8_encode($resultados['observacion'])."</td>";
               echo  "</tr>";
           }
