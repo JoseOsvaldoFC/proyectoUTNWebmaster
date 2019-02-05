@@ -30,7 +30,7 @@
             <tr class="table-active">
               <th scope="col">ID CEL</th>
               <th scope="col">IMEI</th>
-              <th scope="col">linea</th>
+              <th scope="col">LINEA</th>
               <th scope="col">DESTINO ORIGEN</th>
               <th scope="col">TRASLADO A</th>
               <th scope="col">FECHA MOVIMIENTO</th>
